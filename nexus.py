@@ -15,7 +15,7 @@ log.setLevel(logging.ERROR)
 app = flask.Flask('nexus')
 
 
-def load(filepath='nexus.pickle'):
+def load(filepath='data/nexus.pickle'):
     with open(filepath, 'rb') as infile:
         data = pickle.load(infile)
     return data
@@ -116,7 +116,7 @@ def bound():
 def save():
     global data
     try:
-        with open('nexus.pickle', 'wb') as outfile:
+        with open('data/nexus.pickle', 'wb') as outfile:
             pickle.dump(data, outfile)
         return 'successfully saved data', 200, {'ContentType':'application/json'}
     except Exception as oops:
