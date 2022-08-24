@@ -7,7 +7,7 @@ import numpy as np
 import pickle
 
 
-nexus_port = int(os.getenv('NEXUS_PORT', 8888))
+nexus_port = os.getenv('NEXUS_PORT', '8888')
 
 
 log = logging.getLogger('werkzeug')
@@ -130,4 +130,4 @@ if __name__ == '__main__':
     except Exception as oops:
         print(oops)
         data = list()
-    app.run(host='0.0.0.0', port=nexus_port)
+    app.run(host='0.0.0.0', port=int(nexus_port))
